@@ -4,3 +4,5 @@ git config --global user.username tien (đăng kí)
 git config user.username (xem tên đăng nhâp) //tương tự .password  .email
 
 git config  --global --unset user.username (xóa tài khoản)
+ git status  (xem da sua doi  chua)
+git add .  (ddanh dau da xem đồng bộ )
