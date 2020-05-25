@@ -1,0 +1,6 @@
+xem 
+git config --list (danh sách đăng nhâp)
+git config --global user.username tien (đăng kí)
+git config user.username (xem tên đăng nhâp) //tương tự .password  .email
+
+git config  --global --unset user.username (xóa tài khoản)
