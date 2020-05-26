@@ -1,0 +1,146 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Danhsachsinhvien
+{
+    class Student
+    {
+        private String masv;
+        private String tensv;
+        private int namsinh;
+        private String lop;
+        private String diachi;
+        private double diem;
+
+        public Student(String masv, String tensv, int namsinh, String lop, String diachi, double diem)
+        {
+            this.masv = masv;
+            this.tensv = tensv;
+            this.namsinh = namsinh;
+            this.lop = lop;
+            this.diachi = diachi;
+            this.diem = diem;
+        }
+        public String Xep_loai()
+        {
+            if (diem >= 9) return " xuat sac";
+            if (diem >= 8) return "gioi";
+            if (diem >= 7) return "kha";
+            if (diem >= 6) return "trung binh kha";
+            if (diem >= 5) return "trung binh";
+            else return "yeu";
+        }
+        public void Xem()
+        {
+            Console.Out.WriteLine(" Masv: {0}\ttensv: {1}\tnamsinh: {2}\tlop: {3}\tdia chi: {4}\tXep_loai: {0}\t"
+                , masv, tensv, namsinh, lop, diachi, diem, this.Xep_loai());
+        }
+    }
+    class Class
+    {
+        private Student[] L = new Student[50];
+        private int si_so;
+        public Class(int n)
+        {
+            si_so = n;
+        }
+        public void Chen(Student x, int k)
+        {
+            int i;
+            if (k > 0 && k <= si_so + 1)
+            {
+                if (k <= si_so)
+                    for (i = si_so; i <= k; i--)
+                        L[i] = L[i + 1];
+                L[k] = x;
+                si_so = si_so + 1;
+            }
+        }
+        public void Tao_danh_sach()
+        {
+            int i;
+            String masv, tensv, lop, diachi;
+            double diem = 0;
+            int namsinh = 0;
+            for (i = 1; i < si_so; i++)
+            {
+                Console.Out.WriteLine("nhap sinh vien thu {0}:", 1);
+                Console.Out.WriteLine("Ma sinh vien");
+                masv = Console.ReadLine();
+                Console.Out.WriteLine("Ten sinh vien:");
+                tensv = Console.ReadLine();
+                try
+                {
+                    do
+                    {
+                        Console.Out.WriteLine(" Nam sinh :");
+                        namsinh = int.Parse(Console.ReadLine());
+
+                    } while (namsinh <= 0);
+                }
+                catch (Exception e)
+                {
+                    Console.Out.Write(e);
+                }
+                Console.Out.WriteLine("Lop");
+                lop = Console.ReadLine();
+                Console.Out.WriteLine("Dia chi");
+                diachi = Console.ReadLine();
+                try
+                {
+                    do
+                    {
+                        Console.Out.WriteLine(" Nam sinh:");
+                        diem = double.Parse(Console.ReadLine());
+                    } while (diem < 0);//L[i].Diem<0;
+
+                }
+                catch (Exception e)
+                {
+                    Console.Out.Write(e);
+                }
+                Student T = new Student(masv, tensv, namsinh, lop, diachi, diem);
+                L[i].Xem();
+
+            }
+        }
+        public void Xem_danh_sach()
+        {
+            int i;
+            for (i = 1; i < si_so; i++)
+            {
+                Console.Out.WriteLine("thong tin sinh vien thu {0}:", 1);
+                L[i].Xem();
+            }
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int si_so = 0;
+            try
+            {
+                do
+                {
+                    Console.Out.Write(" nhap si so lop :");
+
+                    si_so = int.Parse(Console.ReadLine());
+                } while (si_so <= 0);
+            }
+            catch (Exception e)
+            {
+                Console.Out.Write(e);
+            }
+            Class L = new Class(si_so);
+            L.Tao_danh_sach();
+            L.Xem_danh_sach();
+            Console.ReadLine();
+
+        }
+
+    }
+}

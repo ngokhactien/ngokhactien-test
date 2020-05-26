@@ -1,8 +1,52 @@
+"tạo đẩy lên web
+git init 
+git commit -m" đã sữa"
+ git remote add origin 
+ git push -u origin master
+
+
 xem 
+- bấn Q thoát  (End)
 git config --list (danh sách đăng nhâp)
 git config --global user.username tien (đăng kí)
 git config user.username (xem tên đăng nhâp) //tương tự .password  .email
 
 git config  --global --unset user.username (xóa tài khoản)
- git status  (xem da sua doi  chua)
-git add .  (ddanh dau da xem đồng bộ )
+git status  //  kiem tra co file nào chưa đc vao theo doi
+
+git add .   // đưa tất cả  vào chuẩn bị commit theo dõi
+hoặc git add -A  // tất cả file cũ mới vào 
+hoặc  git add -u // đưa mấy file ko lấy file mới
+
+conmit : lưu lại bản sao của bản chính để theo dõi khi sữa đổi
+git commit -m " ok"
+
+git pull đồng bộ trên internet và local(máy tính mình)
+
+gp ?? 
+
+git log hoặc git log --online :git log xem danh sách chỉnh sữa conmmit gửi ai git log --online xem thu gọn
+
+git checkout : là kiểm tra mả lịch sử sửa dùng git log --online
+ git checkout mả  vd git checkout 23132dsd(mã lịch sử git log --online)
+
+git log -p // xem chi tiết từng cái thay đổi có cả người làm và trong đó có gì
+
+-tạo nhánh 
+git branch // xem nhánh
+git branch ..(tên nhanh ): git branch branch_1 // tạo nhánh
+git branch branch_1 // tạo nhánh
+
+--đổi tên nhanh
+git branch -m ...(rename) : git branch -m branch_rename // đang ở nhánh đổi tên
+git branch -m ...(tên nhánh cần đổi ) (tên nhán mới) : git branch -m branch_rename  branch_2 // đang ở nhánh đổi tên
+ 
+- duy chuyển nhánh
+git checkout (tên nhánh tới) : git checkout branch_1 
+
+- duy chuyễn sang nhanh khác
+-đẩy file lên
+git init 
+git commit -m " đã sửa"
+ git remote add origin (link)
+git push origin master
